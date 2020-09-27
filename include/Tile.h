@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include "olcConsoleGameEngine.h"
 #include "Renderer.h"
 
 //Represents a single unit on screen, represented as a colored Unicode character

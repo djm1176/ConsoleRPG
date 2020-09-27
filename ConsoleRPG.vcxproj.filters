@@ -36,9 +36,6 @@
     <ClInclude Include="include\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\olcConsoleGameEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,10 +48,16 @@
     <ClInclude Include="include\Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Transform.h">
+    <ClInclude Include="include\Vectors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Vectors.h">
+    <ClInclude Include="include\InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\olcConsoleGameEngine_old.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\olcConsoleGameEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,10 +77,16 @@
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Transform.cpp">
+    <ClCompile Include="src\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector.cpp">
+    <ClCompile Include="src\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\olcConsoleGameEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

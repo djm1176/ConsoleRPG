@@ -1,8 +1,10 @@
 #pragma once
 
-#include "olcConsoleGameEngine.h"
 #include "Input.h"
 #include "ScreenManager.h"
+#include "InputManager.h"
+
+class olcConsoleGameEngine;
 
 class Game : public olcConsoleGameEngine {
 	virtual bool OnUserCreate() override;

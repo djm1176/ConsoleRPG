@@ -22,7 +22,7 @@ class Player : public Actor {
 
 
 public:
-	Player(Game*, wchar_t);
+	Player(Game* context, wchar_t _char = L'@');
 
 	void update() override;
 

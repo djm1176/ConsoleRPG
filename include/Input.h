@@ -1,9 +1,6 @@
 #pragma once
 #include <string>
-#include <map>
 #include <functional>
-
-#include "olcConsoleGameEngine.h"
 
 class Game;
 
@@ -44,33 +41,8 @@ public:
 	//Initializes an Input Action with given action (function call), optional params, and a classification of the action as an ActionType.
 	//InputAction(InputActionBase* context, input_funct action = nullptr, std::string param = "", ActionType type = ActionType::none)
 	//	: m_context{ context }, m_action { action }, m_actionType{ type }, m_param{ param } {}
-	InputAction(InputActionBase*, std::string, ActionType);
+	InputAction(InputActionBase* context, std::string param = "", ActionType type = ActionType::none);
 
 	void run();
 
-};
-
-//Describes a user input and the resulting action
-class InputManager {
-private:
-	Game* m_context;
-	std::map<int, InputAction> m_keybinds;
-
-public:
-	InputManager(Game*);
-
-	void processInput();
-
-	// Binds a key input to an action.
-	//keystate 1 = pressed
-	//keystate 2 = held
-	//keystate 4 = released
-	void registerInput(int, int, InputAction);
-
-	//Renders a graphic displaying the given input Key and Format.
-	void renderInput(int, int, int, int, ActionType, RenderFormat);
-
-private:
-	static std::wstring& key_to_string(int);
-	static COLOUR action_to_color(ActionType);
 };

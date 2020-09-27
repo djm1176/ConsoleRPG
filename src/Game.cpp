@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "olcConsoleGameEngine.h"
 #include "Game.h"
 
 const int GAME_WIDTH = 50;

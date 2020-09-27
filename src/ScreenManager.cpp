@@ -1,4 +1,5 @@
 #include "ScreenManager.h"
+#include "Game.h"
 
 ScreenManager::ScreenManager(int width, int height, Game* context)
 	: m_width{ width },

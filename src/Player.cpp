@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Game.h"
 
 int Player::InputMovePlayer::funct(std::string param) {
 
@@ -33,7 +34,7 @@ void Player::registerInputs() {
 }
 
 
-Player::Player(Game* context, wchar_t _char = L'@') : m_context{ context } {
+Player::Player(Game* context, wchar_t _char) : m_context{ context } {
 	setchar(_char);
 	registerInputs();
 }
