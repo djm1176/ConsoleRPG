@@ -10,8 +10,8 @@ const int GAME_HEIGHT = 20;
 bool Game::OnUserCreate() {
 
 	//Initialize managers
-	sceneManager = new ScreenManager(GAME_WIDTH, GAME_HEIGHT, this);
 	inputManager = new InputManager(this);
+	sceneManager = new ScreenManager(GAME_WIDTH, GAME_HEIGHT, this);
 
 	//Randomize the tiles
 	for (int y = 0; y < GAME_HEIGHT; y++) {

@@ -8,17 +8,17 @@ int Player::InputMovePlayer::funct(std::string param) {
 	int y = std::stoi(param.substr(2, 2));
 
 	//Update player's position
-
+	m_player->Move(x, y);
 
 	return 0;
 }
 
 //Required constructor to initialize base class
-Player::InputMovePlayer::InputMovePlayer(Game* context) : InputActionBase{ context } {}
+Player::InputMovePlayer::InputMovePlayer(Game* context, Player* player) : InputActionBase{ context }, m_player{ player } {}
 
 void Player::registerInputs() {
 	//Initialize test Input Action class
-	inputs = new InputMovePlayer(m_context);
+	inputs = new InputMovePlayer(m_context, this);
 
 	//Create InputAction
 	InputAction w_action = InputAction((InputActionBase*)inputs, "0 -1");

@@ -12,8 +12,9 @@ class Player : public Actor {
 		// Inherited via InputActionBase
 		virtual int funct(std::string) override;
 
+		Player* m_player;
 		//Required constructor to initialize base class
-		InputMovePlayer(Game*);
+		InputMovePlayer(Game*, Player*);
 	};
 	Game* m_context;
 	InputMovePlayer* inputs;

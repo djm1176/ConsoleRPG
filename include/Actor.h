@@ -10,6 +10,7 @@ public:
 		//Offset the actor's position
 		this->position.x += x;
 		this->position.y += y;
+		return true;
 	}
 	virtual std::string toString() const override {
 		return "Actor";

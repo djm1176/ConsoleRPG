@@ -1,7 +1,8 @@
 #include "InputManager.h"
 #include "Game.h"
 
-InputManager::InputManager(Game* context) : m_context{ context } {}
+InputManager::InputManager(Game* context)
+	: m_context{ context }, m_keybinds{ std::map<int, InputAction>{} } {}
 
 void InputManager::processInput() {
 	for (auto it = m_keybinds.begin(); it != m_keybinds.end(); it++) {
@@ -16,11 +17,10 @@ void InputManager::processInput() {
 }
 
 void InputManager::registerInput(int key, int keystate, InputAction f) {
-
 	//Create and add, or update, a binding
 	int _k = (key << 3) + keystate;
-	//m_keybinds.insert_or_assign(_k, f);
-	m_keybinds.insert(std::make_pair(_k, f));
+	auto _p = std::make_pair(_k, f);
+	m_keybinds.insert(_p);
 }
 
 
