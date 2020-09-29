@@ -137,7 +137,6 @@
     <ClInclude Include="include\MathUtils.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\olcConsoleGameEngine.h" />
-    <ClInclude Include="include\olcConsoleGameEngine_old.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ScreenManager.h" />

@@ -54,9 +54,6 @@
     <ClInclude Include="include\InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\olcConsoleGameEngine_old.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\olcConsoleGameEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>

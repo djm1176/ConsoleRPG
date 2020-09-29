@@ -5,7 +5,6 @@
 
 InputActionBase::InputActionBase(Game* context) : m_context{ context } {}
 
-
 InputAction::InputAction(InputActionBase* context, std::string param, ActionType type)
 	: m_context{ context }, m_actionType{ type }, m_param{ param } {}
 
