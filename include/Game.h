@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "ScreenManager.h"
 #include "InputManager.h"
+#include "UI.h"
 
 class olcConsoleGameEngine;
 
@@ -14,4 +15,5 @@ class Game : public olcConsoleGameEngine {
 public:
 	ScreenManager* sceneManager;
 	InputManager* inputManager;
+	UIManager* uiManager;
 };

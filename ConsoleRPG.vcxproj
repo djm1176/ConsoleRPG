@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="include\Actions.h" />
     <ClInclude Include="include\Actor.h" />
+    <ClInclude Include="include\Debug.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\InputManager.h" />
@@ -141,17 +142,19 @@
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\ScreenManager.h" />
     <ClInclude Include="include\Tile.h" />
+    <ClInclude Include="include\UI.h" />
     <ClInclude Include="include\Vectors.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Object.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\olcConsoleGameEngine.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\ScreenManager.cpp" />
+    <ClCompile Include="src\UI.cpp" />
     <ClCompile Include="src\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,6 +4,7 @@
 InputManager::InputManager(Game* context)
 	: m_context{ context }, m_keybinds{ std::map<int, InputAction>{} } {}
 
+//TODO: Make sure the map is sorted, then execute ALL keybinds that match exactly, not just one (most likely the first it finds)
 void InputManager::processInput() {
 	for (auto it = m_keybinds.begin(); it != m_keybinds.end(); it++) {
 		olcConsoleGameEngine::sKeyState& m_key = m_context->m_keys[(it->first >> 3)];
