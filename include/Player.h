@@ -21,10 +21,9 @@ class Player : public Actor {
 
 	void registerInputs();
 
-
 public:
 	Player(Game* context, wchar_t _char = L'@');
 
 	void update() override;
-
+	~Player();
 };

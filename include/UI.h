@@ -3,6 +3,19 @@
 #include <memory>
 #include <string>
 #include "Vectors.h"
+#include "olcConsoleGameEngine.h"
+
+#define LINE_VERT L'\u2502'
+#define LINE_HORZ L'\u2500'
+#define LINE_TL L'\u250C'
+#define LINE_BL L'\u2514'
+#define LINE_TR L'\u2510'
+#define LINE_BR L'\u2518'
+
+#define LINE_MID_T L'\u252C'
+#define LINE_MID_B L'\u2534'
+#define LINE_MID_L L'\u251C'
+#define LINE_MID_R L'\u2524'
 
 class Game;
 
@@ -16,19 +29,33 @@ protected:
 	//The maximum size of the element, or bounds.
 	Vector m_Size;
 
+	short m_Color;
+
 	virtual void render(Game* context) = 0;
 public:
 	//Describes where a Control is relative to another Control, based on user input.
 	enum RelativePosition { above, below, left, right };
 
-	UIElement(Vector position) : m_Position{ position } {}
+	UIElement(Vector position);
 };
 
-//A UIElement that displays a label string.
-//class Label : UIElement {
-//
-//
-//};
+//A UI element that displays a label string.
+class Label : UIElement {
+
+
+};
+
+//A UI element that serves as a filler/background with no content.
+class Panel : public UIElement {
+private:
+	bool m_DrawBorder;
+public:
+	Panel(Vector position = Vector::zero, Vector size = Vector::one, short color = BG_BLACK | FG_WHITE);
+	void render(Game* context) override;
+
+	//Set to true to draw a bordered edge around the panel. Note that the border consumes 1 internal space on all sides.
+	void setBorder(bool draw);
+};
 
 //A UI element that can be navigated to by the user through input
 class Control : public UIElement {
@@ -109,6 +136,9 @@ public:
 	
 	//Inserts a copy of RadioButton into the manager and returns the copy.
 	RadioButton& insert(RadioButton element);
+
+	//Inserts a copy of Panel into the manager and returns the copy.
+	Panel& insert(Panel element);
 
 	//Updates all elements of this manager.
 	void update();

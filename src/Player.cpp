@@ -39,6 +39,10 @@ Player::Player(Game* context, wchar_t _char) : m_context{ context } {
 	registerInputs();
 }
 
+Player::~Player() {
+	delete inputs;
+}
+
 void Player::update() {
 
 }

@@ -4,8 +4,8 @@
 #include "Game.h"
 #include "Debug.h"
 
-const int GAME_WIDTH = 50;
-const int GAME_HEIGHT = 20;
+const int GAME_WIDTH = 80;
+const int GAME_HEIGHT = 24;
 
 
 // Inherited via olcConsoleGameEngine
@@ -25,8 +25,11 @@ bool Game::OnUserCreate() {
 
 	//Demo UI Testing
 
-	RadioButton btn = RadioButton("Option 1");
-	RadioButton btn2 = RadioButton("Option 2", Vector{ 0, 1, 0 });
+	Panel _panel = Panel(Vector{ GAME_WIDTH - 36, GAME_HEIGHT - 4, 0 }, Vector{ 35, 3, 0 });
+	_panel.setBorder(true);
+	RadioButton btn = RadioButton("Option 1", Vector{GAME_WIDTH - 35, GAME_HEIGHT - 3, 0});
+	RadioButton btn2 = RadioButton("Option 2", Vector{ GAME_WIDTH - 35, GAME_HEIGHT - 2, 0 });
+	uiManager->insert(_panel);
 	uiManager->insert(btn);
 	uiManager->insert(btn2);
 
@@ -38,6 +41,7 @@ bool Game::OnUserUpdate(float fElapsedTime) {
 	sceneManager->update();
 	inputManager->processInput();
 	uiManager->update();
+
 
 	return true;
 }
