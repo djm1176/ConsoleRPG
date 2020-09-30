@@ -9,7 +9,6 @@ public:
 	Object(Vector _position = Vector::zero);
 
 	virtual void update() = 0;
-	virtual std::string toString() const = 0; 
 	
 	bool isActive() const;
 	void destroy();

@@ -30,11 +30,6 @@ public:
 		m_color = _color;
 	}
 
-	//Inherited via Object
-	std::string toString() const override {
-		return "Renderer";
-	}
-
 	void update() override {
 		
 	}

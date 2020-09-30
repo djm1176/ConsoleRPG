@@ -16,6 +16,18 @@ Tile& ScreenManager::at(int index) {
 	return m_Tiles.at(index);
 }
 
+Tile& ScreenManager::at(int x, int y) {
+	return m_Tiles.at(x + y * m_width);
+}
+
+int ScreenManager::getWidth() const {
+	return m_width;
+}
+
+int ScreenManager::getHeight() const {
+	return m_height;
+}
+
 void ScreenManager::update() {
 	//Render all tiles to the game window
 	for (int i = 0; i < m_width * m_height; i++) {

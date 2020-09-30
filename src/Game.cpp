@@ -13,13 +13,19 @@ bool Game::OnUserCreate() {
 
 	//Initialize managers
 	inputManager = new InputManager(this);
-	sceneManager = new ScreenManager(GAME_WIDTH, GAME_HEIGHT, this);
+	sceneManager = new ScreenManager(40, 20, this);
 	uiManager = new UIManager(this);
 
 	//Randomize the tiles
-	for (int y = 0; y < GAME_HEIGHT; y++) {
-		for (int x = 0; x < GAME_WIDTH; x++) {
-			sceneManager->at(x + y * GAME_WIDTH).setchar((rand() % 2 == 1 ? L' ' : L'#'));
+	for (int y = 0; y < sceneManager->getHeight(); y++) {
+		for (int x = 0; x < sceneManager->getWidth(); x++) {
+			if (rand() % 2 == 1) {
+				sceneManager->at(x, y).setchar(L' ');
+			} else {
+				sceneManager->at(x, y).setchar(L'#');
+				sceneManager->at(x, y).setMoveableType(Tile::barrier);
+			}
+
 		}
 	}
 

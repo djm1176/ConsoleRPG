@@ -34,7 +34,7 @@ void Player::registerInputs() {
 }
 
 
-Player::Player(Game* context, wchar_t _char) : m_context{ context } {
+Player::Player(Game* context, wchar_t _char) : Actor{context } {
 	setchar(_char);
 	registerInputs();
 }

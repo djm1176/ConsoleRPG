@@ -16,7 +16,6 @@ class Player : public Actor {
 		//Required constructor to initialize base class
 		InputMovePlayer(Game*, Player*);
 	};
-	Game* m_context;
 	InputMovePlayer* inputs;
 
 	void registerInputs();

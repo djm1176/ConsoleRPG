@@ -21,7 +21,12 @@ public:
 
 	Tile& operator[] (int);
 
-	Tile& at(int);
+	Tile& at(int index);
+
+	Tile& at(int x, int y);
+
+	int getWidth() const;
+	int getHeight() const;
 
 	void update();
 

@@ -1,22 +1,18 @@
 #pragma once
 #include "Renderer.h"
 
+class Game;
+
 //A character, such as the Player, Enemies, and NPCs
 class Actor : public Renderer {
-private:
-public:
-	//Moves this Actor by offsetting their current position with given x and y
-	bool Move(int x, int y) {
-		//Offset the actor's position
-		this->position.x += x;
-		this->position.y += y;
-		return true;
-	}
-	virtual std::string toString() const override {
-		return "Actor";
-	}
+protected:
+	Game* m_context;
 
-	virtual void update() override {
-		
-	}
+public:
+	Actor(Game* context);
+
+	//Moves this Actor by offsetting their current position with given x and y
+	bool Move(int x, int y);
+
+	virtual void update() override;
 };
