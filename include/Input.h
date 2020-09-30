@@ -35,6 +35,7 @@ private:
 	ActionType m_actionType;
 	std::string m_param;
 	InputActionBase* m_context;
+	bool m_ignore; //If true, this InputAction is ignored and the Action is not invoked.
 
 public:
 
@@ -44,5 +45,14 @@ public:
 	InputAction(InputActionBase* context, std::string param = "", ActionType type = ActionType::none);
 
 	void run();
+
+	//Sets whether this InputAction's invoke should be ignored.
+	void setIgnore(bool ignore);
+
+	//Returns true if this InputAction's invoke should be ignored.
+	bool isIgnored() const;
+
+	//Returns a pointer to this InputAction's subclassed InputActionBase.
+	const InputActionBase* getActionBase() const;
 
 };

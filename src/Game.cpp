@@ -13,47 +13,36 @@ bool Game::OnUserCreate() {
 
 	//Initialize managers
 	inputManager = new InputManager(this);
-	sceneManager = new ScreenManager(40, 20, this);
-	uiManager = new UIManager(this);
+	screenManager = new ScreenManager(40, 20, this);
 
 	//Randomize the tiles
-	for (int y = 0; y < sceneManager->getHeight(); y++) {
-		for (int x = 0; x < sceneManager->getWidth(); x++) {
-			if (rand() % 2 == 1) {
-				sceneManager->at(x, y).setchar(L' ');
+	for (int y = 0; y < screenManager->getHeight(); y++) {
+		for (int x = 0; x < screenManager->getWidth(); x++) {
+			if (rand() % 5 != 1) {
+				screenManager->at(x, y).setchar(L' ');
 			} else {
-				sceneManager->at(x, y).setchar(L'#');
-				sceneManager->at(x, y).setMoveableType(Tile::barrier);
+				screenManager->at(x, y).setchar(L'#');
+				screenManager->at(x, y).setMoveableType(Tile::barrier);
 			}
 
 		}
 	}
 
-	//Demo UI Testing
+	//Debugging and testing
 
-	Panel _panel = Panel(Vector{ GAME_WIDTH - 36, GAME_HEIGHT - 4, 0 }, Vector{ 35, 3, 0 });
-	_panel.setBorder(true);
-	RadioButton btn = RadioButton("Option 1", Vector{GAME_WIDTH - 35, GAME_HEIGHT - 3, 0});
-	RadioButton btn2 = RadioButton("Option 2", Vector{ GAME_WIDTH - 35, GAME_HEIGHT - 2, 0 });
-	uiManager->insert(_panel);
-	uiManager->insert(btn);
-	uiManager->insert(btn2);
 
 	return true;
 }
 
 bool Game::OnUserUpdate(float fElapsedTime) {
 	//Update the ScreenManager
-	sceneManager->update();
+	screenManager->update();
 	inputManager->processInput();
-	uiManager->update();
-
 
 	return true;
 }
 
 bool Game::OnUserDestroy() {
-	delete sceneManager;
 	delete inputManager;
 	return true;
 }

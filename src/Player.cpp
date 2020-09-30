@@ -46,3 +46,7 @@ Player::~Player() {
 void Player::update() {
 
 }
+
+const Player::InputMovePlayer* Player::getInputBinding() const {
+	return inputs;
+}

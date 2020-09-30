@@ -11,7 +11,9 @@ void InputManager::processInput() {
 		if (m_key.bPressed && (it->first >> 0 & 0x01) ||
 			m_key.bHeld && (it->first >> 1 & 0x01) ||
 			m_key.bReleased && (it->first >> 2 & 0x01)) {
-			it->second.run();
+				//If the InputAction is ignored, don't invoke
+				if(!it->second.isIgnored())
+					it->second.run();
 
 		}
 	}
@@ -24,6 +26,26 @@ void InputManager::registerInput(int key, int keystate, InputAction f) {
 	m_keybinds.insert(_p);
 }
 
+void InputManager::setIgnoreInput(const InputActionBase* m_actionBase, int operation) {
+//Match all keybinds with an InputAction that have member InputActionBase that matches m_actionClass
+	for (auto it = m_keybinds.begin(); it != m_keybinds.end(); it++) {
+		auto _a = dynamic_cast<const void*>(it->second.getActionBase());
+		auto _b = dynamic_cast<const void*>(m_actionBase);
+			if (_a == _b) {
+				switch (operation) {
+				case 0:
+					it->second.setIgnore(false);
+					break;
+				case 1:
+					it->second.setIgnore(true);
+					break;
+				case 2:
+					it->second.setIgnore(!it->second.isIgnored());
+					break;
+				}
+			}
+	}
+}
 
 void InputManager::renderInput(int key, int x, int y, int w, ActionType type, RenderFormat format) {
 	std::wstring _str = key_to_string(key);

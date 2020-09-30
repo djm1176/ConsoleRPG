@@ -142,4 +142,5 @@ public:
 
 	//Updates all elements of this manager.
 	void update();
+
 };

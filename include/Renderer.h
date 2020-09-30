@@ -11,7 +11,7 @@ private:
 public:
 
 	//Constructor for a Renderer.
-	Renderer(wchar_t _char = L' ', COLOUR _color = FG_GREY)
+	Renderer(wchar_t _char = L' ', COLOUR _color = FG_DARK_GREY)
 		: m_char{ _char }, m_color{ _color } {}
 
 	wchar_t getchar() const {

@@ -13,7 +13,6 @@ class Game : public olcConsoleGameEngine {
 	virtual bool OnUserDestroy() override;
 
 public:
-	ScreenManager* sceneManager;
+	ScreenManager* screenManager;
 	InputManager* inputManager;
-	UIManager* uiManager;
 };

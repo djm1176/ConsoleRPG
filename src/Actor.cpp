@@ -10,9 +10,11 @@ bool Actor::Move(int x, int y) {
 	int _x = this->position.x + x;
 	int _y = this->position.y + y;
 
-	if (_x < 0 || _y < 0 || x >= m_context->sceneManager->getWidth() || y >= m_context->sceneManager->getWidth()) return false;
+	if (_x < 0 || _y < 0 ||
+		_x >= m_context->screenManager->getWidth() ||
+		_y >= m_context->screenManager->getHeight()) return false;
 
-	if (m_context->sceneManager->at(_x, _y)
+	if (m_context->screenManager->at(_x, _y)
 		.getMoveableType() == Tile::barrier) return false;
 
 	//Offset the actor's position
