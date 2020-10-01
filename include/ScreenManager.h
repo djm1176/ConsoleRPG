@@ -40,6 +40,8 @@ public:
 
 	Tile& at(int x, int y);
 
+	std::vector<Tile> tiles();
+
 	int getWidth() const;
 	int getHeight() const;
 

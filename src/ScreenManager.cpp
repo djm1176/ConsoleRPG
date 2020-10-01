@@ -32,6 +32,10 @@ Tile& ScreenManager::at(int x, int y) {
 	return m_Tiles.at(x + y * m_width);
 }
 
+std::vector<Tile> ScreenManager::tiles() {
+	return m_Tiles;
+}
+
 int ScreenManager::getWidth() const {
 	return m_width;
 }
@@ -64,9 +68,6 @@ int ScreenManager::InputToggleMenu::funct(std::string) {
 	//Toggle whether the Player absorbs inputs
 	Player* _player = m_Manager->getPlayer();
 	m_Manager->m_context->inputManager->setIgnoreInput(_player->getInputBinding(), 2);
-	//Toggle whether the UI absorbs inputs, except the toggle button
-
-	//m_Manager->m_context->inputManager->setIgnoreInput(m_UIManager->getInputBinding(), 2);
 	return 0;
 }
 

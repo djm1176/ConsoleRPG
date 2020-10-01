@@ -3,6 +3,7 @@
 #include "olcConsoleGameEngine.h"
 #include "Game.h"
 #include "Debug.h"
+#include "MapTools.h"
 
 const int GAME_WIDTH = 80;
 const int GAME_HEIGHT = 24;
@@ -15,18 +16,8 @@ bool Game::OnUserCreate() {
 	inputManager = new InputManager(this);
 	screenManager = new ScreenManager(40, 20, this);
 
-	//Randomize the tiles
-	for (int y = 0; y < screenManager->getHeight(); y++) {
-		for (int x = 0; x < screenManager->getWidth(); x++) {
-			if (rand() % 5 != 1) {
-				screenManager->at(x, y).setchar(L' ');
-			} else {
-				screenManager->at(x, y).setchar(L'#');
-				screenManager->at(x, y).setMoveableType(Tile::barrier);
-			}
-
-		}
-	}
+	//Test perlin map
+	MapBuilder::generatePerlinTiles(0, 0, screenManager->getWidth(), screenManager->getHeight(), screenManager->tiles());
 
 	//Debugging and testing
 
