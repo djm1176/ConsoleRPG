@@ -4,7 +4,6 @@
 #include <map>
 
 namespace MapBuilder {
-	siv::PerlinNoise perlin(std::random_device{});
 
 	const std::map<int, Tile> TILES{
 		{0, Tile{"air", Tile::moveable, L' ', FG_WHITE} },
@@ -14,10 +13,12 @@ namespace MapBuilder {
 		{4, Tile{"grass", Tile::moveable, L'\"', FG_DARK_GREEN} }
 	};
 
-	void generatePerlinTiles(int x, int y, int w, int h, std::vector<Tile>& tiles) {
+	void generatePerlinTiles(int x, int y, int w, int h, int f, std::vector<Tile> &tiles) {
+		static siv::PerlinNoise perlin = siv::PerlinNoise{ std::random_device() };
 		for (int i = 0; i < w * h; i++) {
 			//Generate perlin noise value
-			int p = (int)(perlin.accumulatedOctaveNoise2D_0_1(x, y, 1) * 4);
+			//int p = (int)(perlin.accumulatedOctaveNoise2D_0_1(f * (i % w), f * (i / w), 4) * 4);
+			int p = perlin.noise1D_0_1(rand() % 1000);
 			switch(p) {
 			case 0:
 				tiles[i] = Tile{ TILES.at(1) };
@@ -34,5 +35,6 @@ namespace MapBuilder {
 			}
 			
 		}
+		std::cout << "Hello";
 	}
 }

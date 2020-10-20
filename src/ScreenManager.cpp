@@ -32,7 +32,7 @@ Tile& ScreenManager::at(int x, int y) {
 	return m_Tiles.at(x + y * m_width);
 }
 
-std::vector<Tile> ScreenManager::tiles() {
+std::vector<Tile>& ScreenManager::tiles() {
 	return m_Tiles;
 }
 

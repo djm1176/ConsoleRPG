@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "Debug.h"
 #include "MapTools.h"
+#include "Tile.h"
 
 const int GAME_WIDTH = 80;
 const int GAME_HEIGHT = 24;
@@ -17,7 +18,7 @@ bool Game::OnUserCreate() {
 	screenManager = new ScreenManager(40, 20, this);
 
 	//Test perlin map
-	MapBuilder::generatePerlinTiles(0, 0, screenManager->getWidth(), screenManager->getHeight(), screenManager->tiles());
+	MapBuilder::generatePerlinTiles(0, 0, screenManager->getWidth(), screenManager->getHeight(), 4, screenManager->tiles());
 
 	//Debugging and testing
 
