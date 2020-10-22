@@ -8,23 +8,22 @@ int Player::InputMovePlayer::funct(std::string param) {
 	int y = std::stoi(param.substr(2, 2));
 
 	//Update player's position
-	m_player->Move(x, y);
+	m_context->Move(x, y);
 
 	return 0;
 }
 
-//Required constructor to initialize base class
-Player::InputMovePlayer::InputMovePlayer(Game* context, Player* player) : InputActionBase{ context }, m_player{ player } {}
+Player::InputMovePlayer::InputMovePlayer(Player* context) : InputActionBase{context} {}
 
 void Player::registerInputs() {
 	//Initialize test Input Action class
-	inputs = new InputMovePlayer(m_context, this);
+	inputs = new InputMovePlayer(this);
 
 	//Create InputAction
-	InputAction w_action = InputAction((InputActionBase*)inputs, "0 -1");
-	InputAction a_action = InputAction((InputActionBase*)inputs, "-1 0");
-	InputAction s_action = InputAction((InputActionBase*)inputs, "0 1 ");
-	InputAction d_action = InputAction((InputActionBase*)inputs, "1 0 ");
+	InputAction<Player> w_action = InputAction((InputActionBase<Player>*)inputs, "0 -1");
+	InputAction<Player> a_action = InputAction((InputActionBase<Player>*)inputs, "-1 0");
+	InputAction<Player> s_action = InputAction((InputActionBase<Player>*)inputs, "0 1 ");
+	InputAction<Player> d_action = InputAction((InputActionBase<Player>*)inputs, "1 0 ");
 
 	//Register input by binding the action to a key press
 	m_context->inputManager->registerInput(0x57, 1, w_action);

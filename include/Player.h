@@ -7,14 +7,11 @@ class Game;
 
 //The main Player
 class Player : public Actor {
-	class InputMovePlayer : public InputActionBase {
+	class InputMovePlayer : public InputActionBase<Player> {
 	public:
 		// Inherited via InputActionBase
 		virtual int funct(std::string) override;
-		//Reference to base class
-		Player* m_player;
-		//Required constructor to initialize base class
-		InputMovePlayer(Game*, Player*);
+		InputMovePlayer(Player* context);
 	};
 	InputMovePlayer* inputs;
 

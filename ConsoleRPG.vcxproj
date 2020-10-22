@@ -150,14 +150,13 @@
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\olcConsoleGameEngine.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\ScreenManager.cpp" />
     <ClCompile Include="src\UI.cpp" />
-    <ClCompile Include="src\Vector.cpp" />
+    <ClCompile Include="src\Vectors.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

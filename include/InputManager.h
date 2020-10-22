@@ -8,7 +8,8 @@ class Game;
 class InputManager {
 private:
 	Game* m_context;
-	std::map<int, InputAction> m_keybinds;
+	template<class T>
+	std::map<int, InputAction<T>> m_keybinds;
 
 public:
 	InputManager(Game*);
